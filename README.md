@@ -78,7 +78,7 @@ DNS（Domain Name System，域名系统）是互联网的电话簿，它将人�
 
 ![image](https://github.com/1684838553/http-project/assets/41181666/2a36bd48-7b23-4625-bd31-0bc8bd8db675)
 
-### 4、HTTP 请求
+### 4、HTTP 基本功能
 
 #### 1、 协议特点
 
@@ -187,6 +187,7 @@ DNS（Domain Name System，域名系统）是互联网的电话簿，它将人�
 
    - `301` moved permanently 永久移动，请求的资源已被永久的移动到新的URI,返回信息会包括新的URI,浏览器会自动定向到新的URI
    - `302` found 临时移动，类似301.但资源只是临时被移动，客户端应继续使用原有资源
+   - `304` not modified 与本地缓存一致，没有修改,可使用本地缓存
   
 3. 4xx
 
@@ -199,5 +200,108 @@ DNS（Domain Name System，域名系统）是互联网的电话簿，它将人�
 
    - `500` internal server error 服务器内部错误，无法完成请求
    - `502` bad gateway 充当网关或代理的服务器，从远端服务器接收到一个无效的请求
+  
+#### 6、Cookie和Session
+
+##### 1、Cookie
+
+![image](https://github.com/1684838553/http-project/assets/41181666/3de42bf1-a700-47f7-90bb-2f7c808594f9)
+
+1. Cookie 是一小段的文本信息。客户端请求服务器，如果服务器需要记录该用户状态，就向客户端浏览器办法一个Cookie
+
+2. 客户端浏览器会将Cookie保存起来。当浏览器在请求该网站时，浏览器把请求的网址连同该Cookie一同提交给服务器。服务器检查该Cookie，以此来辨认用户状态
+
+![image](https://github.com/1684838553/http-project/assets/41181666/be275ef2-0b6a-4ce9-a26b-969d6b348e9d)
+
+##### 2、Session
+
+1. Session是另一种记录客户状态的机制，保存在服务器上。客户端浏览器访问服务器的时候，服务器把客户端信息以某种形式记录在服务器上
+   
+2. 客户端浏览器再次访问时，只需要从该session中查找该客户的状态就可以了
+
+![image](https://github.com/1684838553/http-project/assets/41181666/bd9654ae-c027-4c84-8f8b-651c542447ee)
+
+**保存Session ID的方式**
+1. Cookie
+
+2. URL重写
+   - 直接赋值在url路径的后面 `http://.../xxx;Sessionid=session`
+   - 作为查询字符串 `http://.../xxx?Sessionid=session`
+  
+3. 隐藏表单
+
+**Session的有效期**
+
+1. Session超时失效
+2. 程序调用HttpSession.invalidate()
+3. 服务器进程被停止
+
+##### 3、Cookie和Session区别
+
+1. 存放位置不同： Cookie存在客户端，Session保存在服务端
+   
+2. 安全性（隐私策略）不同: Session比Cookie更安全，因为它不会在用户的计算机上保存任何数据
+   - Cookie存在浏览器中，对客户可见，客户端的程序可能会覆盖或修改Cookie内容
+   - Session存在服务器上，对客户透明，不存在泄露风险
+
+3. 有效期不同
+   Session的有效期通常比Cookie的有效期短，因为Session在服务器上存储，而Cookie在用户的计算机上存储。
+
+4. 数据大小: `Session`可以存储更大的数据，因为它不受`Cookie`的大小限制
+
+5. 对服务器的压力不同：Session存在服务端，对服务器的压力更大
+
+### 5、HTTP 功能
+
+#### 1、编码和解码
+
+[encodeURI()、decodeURI()、encodeURIComponent()、decodeURIComponent()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/encodeURI)
+
+1. `encodeURI()`: 通过将特定字符的每个实例替换为转义序列来对统一资源标识符 (URI) 进行编码
+   
+2. `decodeURI()`: 能解码由encodeURI 创建或其他流程得到的统一资源标识符（URI）
+
+3. `encodeURIComponent()`: 通过将特定字符的每个实例替换成代表字符的 UTF-8 编码的转义序列来编码 URI。与 encodeURI() 相比，此函数会编码更多的字符，包括 URI 语法的一部分。
+
+4. `decodeURIComponent()`: 用于解码由 encodeURIComponent 方法或者其他类似方法编码的部分统一资源标识符（URI）。
+
+#### 2、基本认证
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
