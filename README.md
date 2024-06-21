@@ -446,4 +446,7 @@ DNS（Domain Name System，域名系统）是互联网的电话簿，它将人�
 
 ![image](https://github.com/1684838553/http-project/assets/41181666/cbceda87-7ffe-4a5c-ac4f-6c57a86f3a83)
 
+#### 8、协商缓存
+
+#### 9、
 
