@@ -459,5 +459,45 @@ HTTP是通过在Header里两个参数实现的，客户端发请求时对应的�
 ![image](https://github.com/1684838553/http-project/assets/41181666/81c4f023-5291-4224-acc8-ecb0b6ef3080)
 
 
-  
+### 5、HTTPS 概述
+
+`HTTPS = HTTP + TLS`
+
+TLS: 传输层加密协议
+
+![image](https://github.com/1684838553/http-project/assets/41181666/427d85f9-cf91-49de-a085-f77dcddaae3f)
+
+**功能：**
+
+- 内容加密：非对称密钥交换、对称内容加密（分组加密）
+- 身份认证：数字证书
+- 数据完整性
+
+
+**使用成本：**
+
+- 证书的费用及更新维护
+- HTTPS降低用户访问速度
+- 消耗CPU资源，需要增加大量机器
+
+
+**对性能的影响：**
+
+- 协议交互所增加的网络 RTT（全称Round Trip Time，中文名“往返时延”，是从发送数据到收到数据的全过程时间）
+
+   ![image](https://github.com/1684838553/http-project/assets/41181666/4d295749-d809-4279-ab46-bffd1229edbd)
+   
+   ![image](https://github.com/1684838553/http-project/assets/41181666/229cdde6-4df5-45f1-b15f-d123c6fd916d)
+
+- 计算耗时（浏览器和服务端计算耗时，加解密耗时等）
+
+
+**HTTPS常见问题**
+
+- http加密，是不是需要我在电脑上安装证书/保存密码？
+- https是不是在http后面加个s，很难吗？
+- https解决了所有的劫持问题吗？没有，没有绝对的安全，但是，可以尽量降低风险。
+
+
+
 
